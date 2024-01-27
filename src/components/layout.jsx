@@ -31,7 +31,10 @@ export default function Layout() {
     <>
       <MDBNavbar expand='lg' dark bgColor='dark'>
         <MDBContainer fluid>
-          <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+          <MDBNavbarBrand  href='#'>
+            <img src="https://www.pngmart.com/files/3/Iron-Man-Transparent-PNG.png" style={{width:'50px'}} alt="" />
+           Student Management
+          </MDBNavbarBrand>
           <MDBNavbarToggler
             type='button'
             data-target='#navbarTogglerDemo02'
@@ -45,19 +48,7 @@ export default function Layout() {
           </MDBNavbarToggler>
           <MDBCollapse navbar open={openNavNoTogglerSecond}>
             <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-              <MDBNavbarItem>
-                <MDBNavbarLink active aria-current='page' href='#'>
-                  Home
-                </MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Link</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
-                  Disabled
-                </MDBNavbarLink>
-              </MDBNavbarItem>
+              
             </MDBNavbarNav>
             <MDBDropdown>
               <MDBDropdownToggle tag='a' className='nav-link' style={{ color: '#fff', cursor: 'pointer', fontSize: '1.5rem' }}>
@@ -136,126 +127,6 @@ export default function Layout() {
             </MDBRow>
           </form>
         </section>
-
-        {/* <section className='mb-4'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat
-            voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam
-            sequi voluptate quas.
-          </p>
-        </section>
-
-        <section className=''>
-          <MDBRow>
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
-              <h5 className='text-uppercase'>Links</h5>
-
-              <ul className='list-unstyled mb-0'>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 1
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 2
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 3
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 4
-                  </a>
-                </li>
-              </ul>
-            </MDBCol>
-
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
-              <h5 className='text-uppercase'>Links</h5>
-
-              <ul className='list-unstyled mb-0'>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 1
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 2
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 3
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 4
-                  </a>
-                </li>
-              </ul>
-            </MDBCol>
-
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
-              <h5 className='text-uppercase'>Links</h5>
-
-              <ul className='list-unstyled mb-0'>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 1
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 2
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 3
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 4
-                  </a>
-                </li>
-              </ul>
-            </MDBCol>
-
-            <MDBCol lg='3' md='6' className='mb-4 mb-md-0'>
-              <h5 className='text-uppercase'>Links</h5>
-
-              <ul className='list-unstyled mb-0'>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 1
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 2
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 3
-                  </a>
-                </li>
-                <li>
-                  <a href='#!' className='text-white'>
-                    Link 4
-                  </a>
-                </li>
-              </ul>
-            </MDBCol>
-          </MDBRow>
-        </section> */}
       </MDBContainer>
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
