@@ -30,9 +30,10 @@ function User() {
 
               <MDBCol md='6'>
 
-                <MDBCardBody className='text-black d-flex flex-column justify-content-center'>
+                <MDBCardBody className='text-black d-flex  flex-column justify-content-center'>
                   <h3 className="mb-5 text-uppercase fw-bold">Student registration form</h3>
-
+                </MDBCardBody>
+                <MDBCardBody className='text-black d-flex  flex-column justify-content-center'>
                   <MDBRow>
 
                     <MDBCol md='6'>
@@ -45,7 +46,7 @@ function User() {
 
                   </MDBRow>
 
-                  <MDBInput wrapperClass='mb-4' label='Birthday' size='lg' id='form3' type='text' />
+                  <MDBInput wrapperClass='mb-4' label='Enrollment Number' size='lg' id='form3' type='text' />
 
                   <div className='d-md-flex ustify-content-start align-items-center mb-4'>
                     <h6 class="fw-bold mb-0 me-4">Gender: </h6>
@@ -55,27 +56,29 @@ function User() {
                   </div>
 
                   <MDBRow>
-
                     <MDBCol md='6'>
                       <div className='mb-4'>
 
-                        <select className='form-select form-select-lg' id='state'>
-                          <option value='1'>State</option>
-                          <option value='2'>Option 1</option>
-                          <option value='3'>Option 2</option>
-                          <option value='4'>Option 3</option>
-                        </select>
-                      </div>
-                    </MDBCol>
-
-                    <MDBCol md='6'>
-                      <div className='mb-4'>
-
-                        <select className='form-select form-select-lg' id='city'>
-                          <option value='1'>City</option>
-                          <option value='2'>Option 1</option>
-                          <option value='3'>Option 2</option>
-                          <option value='4'>Option 3</option>
+                        <select className='form-select form-select-lg' id='Branch'>
+                          <option value='1'>--Select Branch--</option>
+                          <option value='2'>Applied Geology</option>
+                          <option value='3'>Architecture</option>
+                          <option value='4'>Bio Medical Engineering</option>
+                          <option value='5'>Bio Technology</option>
+                          <option value='6'>Chemical Engineering</option>
+                          <option value='7'>Civil Engineering</option>
+                          <option value='8'>Computer Science & Engineering</option>
+                          <option value='9'>Department of Chemistry</option>
+                          <option value='10'>Department of Computer Application</option>
+                          <option value='11'>Department of Mathematics</option>
+                          <option value='12'>Department of Physics</option>
+                          <option value='13'>Electrical Engineering</option>
+                          <option value='14'>Electronics and Communication Engineering</option>
+                          <option value='15'>Information Technology</option>
+                          <option value='16'>Mechanical Engineering</option>
+                          <option value='17'>Mining Engineering</option>
+                          <option value='18'>Metallurgical and Materials Engineering</option>
+                          <option value='19'>Workshop</option>
                         </select>
                       </div>
 
@@ -83,13 +86,13 @@ function User() {
 
                   </MDBRow>
 
-                  <MDBInput wrapperClass='mb-4' label='Pincode' size='lg' id='form4' type='text' />
-                  <MDBInput wrapperClass='mb-4' label='Course' size='lg' id='form5' type='text' />
+                  <MDBInput wrapperClass='mb-4' label='Roll No' size='lg' id='form5' type='text' />
                   <MDBInput wrapperClass='mb-4' label='Email ID' size='lg' id='form6' type='text' />
 
-                  <div className="d-flex justify-content-end pt-3">
+                  <div className="d-flex flex-column align-items-center pt-3">
+            
+                    <MDBBtn className='mt-2' color='warning' size='lg'>Submit form</MDBBtn>
                     <MDBBtn color='light' size='lg'>Reset all</MDBBtn>
-                    <MDBBtn className='ms-2' color='warning' size='lg'>Submit form</MDBBtn>
                   </div>
 
                 </MDBCardBody>
