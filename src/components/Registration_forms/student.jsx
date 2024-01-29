@@ -59,7 +59,7 @@ function User() {
                     <MDBCol md='6'>
                       <div className='mb-4'>
 
-                        <select className='form-select form-select-lg' id='Branch'>
+                        <select className='form-select form-select-lg' id='Branch' style={{ fontSize: '16px' }}>
                           <option value='1'>--Select Branch--</option>
                           <option value='2'>Applied Geology</option>
                           <option value='3'>Architecture</option>
@@ -91,7 +91,7 @@ function User() {
 
                   <div className="d-flex flex-column align-items-center pt-3">
             
-                    <MDBBtn className='mt-2' color='warning' size='lg'>Submit form</MDBBtn>
+                    <MDBBtn className='mt-2 mb-2' color='warning' size='lg'>Submit form</MDBBtn>
                     <MDBBtn color='light' size='lg'>Reset all</MDBBtn>
                   </div>
 
