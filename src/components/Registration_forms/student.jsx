@@ -43,7 +43,7 @@ function User() {
   const [contractaddress, setContractaddress] = useState();
   const [abi, setAbi] = useState();
   const [contract, setContract] = useState();
-  const [contractWithSigner, setContractWithSigner] = useState();
+  
   const [provider, setProvider] = useState();
   const [signer, setSigner] = useState();
 
@@ -79,7 +79,7 @@ function User() {
     
       // console.log("Form Data:", fname, lname, enroll, gender, branch, phone, email); // Check form data
       const result = await contract.add_student(fname, lname, enroll, gender, branch, phone, email);
-      // console.log("Transaction Result:", result); // Check transaction result
+      console.log("Transaction Result:", result); // Check transaction result
     } catch (err) {
       console.log("Submit error:", err);
     }
