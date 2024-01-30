@@ -13,6 +13,7 @@ import {
 }
   from 'mdb-react-ui-kit';
 
+
 function User() {
   const [fname,setFname]=useState();
   const [lname,setLname]=useState();
@@ -72,26 +73,26 @@ function User() {
                     <MDBCol md='6'>
                       <div className='mb-4'>
 
-                        <select className='form-select form-select-lg' id='Branch'>
-                          <option value='1'>--Select Branch--</option>
-                          <option value='2'>Applied Geology</option>
-                          <option value='3'>Architecture</option>
-                          <option value='4'>Bio Medical Engineering</option>
-                          <option value='5'>Bio Technology</option>
-                          <option value='6'>Chemical Engineering</option>
-                          <option value='7'>Civil Engineering</option>
-                          <option value='8'>Computer Science & Engineering</option>
-                          <option value='9'>Department of Chemistry</option>
-                          <option value='10'>Department of Computer Application</option>
-                          <option value='11'>Department of Mathematics</option>
-                          <option value='12'>Department of Physics</option>
-                          <option value='13'>Electrical Engineering</option>
-                          <option value='14'>Electronics and Communication Engineering</option>
-                          <option value='15'>Information Technology</option>
-                          <option value='16'>Mechanical Engineering</option>
-                          <option value='17'>Mining Engineering</option>
-                          <option value='18'>Metallurgical and Materials Engineering</option>
-                          <option value='19'>Workshop</option>
+                        <select className='form-select form-select-lg' id='Branch' style={{ fontSize: '16px' }}>
+                          <option value='Select Branch'>--Select Branch--</option>
+                          <option value='Applied Geology'>Applied Geology</option>
+                          <option value='Architecture'>Architecture</option>
+                          <option value='Bio Medical Engineering'>Bio Medical Engineering</option>
+                          <option value='Bio Technology'>Bio Technology</option>
+                          <option value='Chemical Engineering'>Chemical Engineering</option>
+                          <option value='Civil Engineering'>Civil Engineering</option>
+                          <option value='Computer Science & Engineering'>Computer Science & Engineering</option>
+                          <option value='Department of Chemistry'>Department of Chemistry</option>
+                          <option value='Department of Computer Application'>Department of Computer Application</option>
+                          <option value='Department of Mathematics'>Department of Mathematics</option>
+                          <option value='Department of Physics'>Department of Physics</option>
+                          <option value='Electrical Engineering'>Electrical Engineering</option>
+                          <option value='Electronics and Communication Engineering'>Electronics and Communication Engineering</option>
+                          <option value='Information Technology'>Information Technology</option>
+                          <option value='Mechanical Engineering'>Mechanical Engineering</option>
+                          <option value='Mining Engineering'>Mining Engineering</option>
+                          <option value='Metallurgical and Materials Engineering'>Metallurgical and Materials Engineering</option>
+                          <option value='Workshop'>Workshop</option>
                         </select>
                       </div>
 
@@ -99,12 +100,12 @@ function User() {
 
                   </MDBRow>
 
-                  <MDBInput wrapperClass='mb-4' label='Phone No' size='lg' id='form5' type='text' onChange={(e)=>setPhone(e.target.value)} />
-                  <MDBInput wrapperClass='mb-4' label='Email ID' size='lg' id='form6' type='text' onChange={(e)=>setEmail(e.target.value)}/>
+                  <MDBInput wrapperClass='mb-4' label='Phone No' size='lg' id='form5' type='text' onChange={(e)=>setPhone(e.target.value)} style={{}}/>
+                  <MDBInput wrapperClass='mb-5' label='Email ID' size='lg' id='form6' type='text' onChange={(e)=>setEmail(e.target.value)} style={{}}/>
 
                   <div className="d-flex flex-column align-items-center pt-3">
             
-                    <MDBBtn className='mt-2' color='warning' size='lg'>Submit form</MDBBtn>
+                    <MDBBtn className='mt-2 mb-2' color='warning' size='lg'>Submit form</MDBBtn>
                     <MDBBtn color='light' size='lg'>Reset all</MDBBtn>
                   </div>
 
