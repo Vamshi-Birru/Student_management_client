@@ -3,9 +3,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout';
 import Home from './components/home';
-import Student from './components/Registration_forms/student';
-import University from './components/Registration_forms/university';
-import OParty from './components/Registration_forms/OParty';
+import StudentR from './components/Registration_forms/student';
+import UniversityR from './components/Registration_forms/university';
+import OPartyR from './components/Registration_forms/OParty';
+import StudentH from "./components/Home/student"
 
 function App() {
   
@@ -14,10 +15,10 @@ function App() {
       <Router>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/reg_stu" element={<Student />} />
-            <Route path="/reg_uni" element={<University />} />
-            <Route path="/reg_Opa" element={<OParty />} />
+            <Route path="/" element={<StudentH />} />
+            <Route path="/reg_stu" element={<StudentR />} />
+            <Route path="/reg_uni" element={<UniversityR />} />
+            <Route path="/reg_Opa" element={<OPartyR />} />
           </Route>
         </Routes>
       </Router>
