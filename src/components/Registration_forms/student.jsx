@@ -96,9 +96,9 @@ function User() {
 
             <MDBRow className='g-0'>
 
-              <MDBCol md='6' className="d-none d-md-block">
-                <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp' alt="Sample photo" className="rounded-start" fluid />
-              </MDBCol>
+            <MDBCol md='6' className="d-none d-md-block">
+              <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp' alt="Sample photo" className="rounded-start" fluid />
+            </MDBCol>
 
 
               <MDBCol md='6'>
