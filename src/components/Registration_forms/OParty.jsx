@@ -12,10 +12,14 @@ import {
   
 }
 from 'mdb-react-ui-kit';
+import Footer from '../footer';
+import Layout from '../layout';
 
 
 function OParty() {
   return (
+    <>
+    <Layout/>
     <MDBContainer fluid className='Oparty'>
 
       <MDBRow className='d-flex justify-content-center align-items-center '>
@@ -43,6 +47,8 @@ function OParty() {
       </MDBRow>
 
     </MDBContainer>
+    <Footer/>
+    </>
   );
 }
 

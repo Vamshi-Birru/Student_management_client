@@ -6,7 +6,13 @@ import Home from './components/home';
 import StudentR from './components/Registration_forms/student';
 import UniversityR from './components/Registration_forms/university';
 import OPartyR from './components/Registration_forms/OParty';
-import StudentH from "./components/Home/student"
+import StudentH from "./components/Home/student";
+import UniversityH from "./components/Home/university";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'jquery/dist/jquery.min.js';
+import 'popper.js/dist/umd/popper.min.js'
+import $ from 'jquery';
 
 function App() {
   
@@ -14,12 +20,12 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<StudentH />} />
+         
+            <Route path="/" element={<UniversityH />} />
             <Route path="/reg_stu" element={<StudentR />} />
             <Route path="/reg_uni" element={<UniversityR />} />
             <Route path="/reg_Opa" element={<OPartyR />} />
-          </Route>
+          
         </Routes>
       </Router>
     </div>

@@ -14,7 +14,8 @@ import {
   from 'mdb-react-ui-kit';
 import { ethers } from 'ethers';
 import axios from 'axios';
-
+import Layout from '../layout';
+import Footer from '../footer';
 
 function User() {
 
@@ -87,6 +88,8 @@ function User() {
   }
 
   return (
+    <>
+    <Layout/>
     <MDBContainer fluid className='bg-dark'>
 
       <MDBRow className='d-flex justify-content-center align-items-center h-100'>
@@ -197,6 +200,8 @@ function User() {
       </MDBRow>
 
     </MDBContainer>
+    <Footer/>
+    </>
   );
 }
 
