@@ -3,13 +3,9 @@ import Footer from '../footer';
 import {
   MDBIcon
 } from 'mdb-react-ui-kit';
-import { Sidebar, Menu, MenuItem,sidebarClasses,useProSidebar} from 'react-pro-sidebar';
 
 import "../../styles/Home/university.css";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import PeopleIcon from '@mui/icons-material/People';
-
+import Sidebarcomponent from '../sidebar';
 
 
 export default function App() {
@@ -17,7 +13,6 @@ export default function App() {
   
   const [notificationCount, setNotificationCount] = useState(0);
   
-const { collapseSidebar,  collapsed } =useProSidebar();
 
 const handleNotificationClick = () => {
   setNotificationCount(0);
@@ -30,27 +25,7 @@ const handleNotificationClick = () => {
       
 
       <div className="content-wrapper">
-       <Sidebar className='sidebar' collapsed={collapsed}  rootStyles={{
-    [`.${sidebarClasses.container}`]: {
-      backgroundColor: '#332D2D',
-      color:"#fff"
-    },
-  }}>
-          <Menu menuItemStyles={{ button: { 
-        [`&.active`]: {
-          backgroundColor: '#555',
-        },
-        [`&.hover`]:{
-          backgroundColor:"#444"
-        }
-      },
-    }}>
-          <MenuItem className="menu1" icon={<MenuRoundedIcon onClick={() => { collapseSidebar(); }}/>}></MenuItem>
-            <MenuItem icon={<PeopleIcon />} className="menu1">Records</MenuItem>
-            <MenuItem icon={<LogoutRoundedIcon />} className='menu1'> Logout </MenuItem>
-          </Menu>
-          
-        </Sidebar>
+       <Sidebarcomponent/>
 
         <div className='bg-image'>
           <img

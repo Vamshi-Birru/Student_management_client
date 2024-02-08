@@ -13,6 +13,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/umd/popper.min.js'
 import $ from 'jquery';
+import Records from './components/records';
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
       <Router>
         <Routes>
          
-            <Route path="/" element={<UniversityH />} />
+            <Route path="/" element={<Records />} />
             <Route path="/reg_stu" element={<StudentR />} />
             <Route path="/reg_uni" element={<UniversityR />} />
             <Route path="/reg_Opa" element={<OPartyR />} />
