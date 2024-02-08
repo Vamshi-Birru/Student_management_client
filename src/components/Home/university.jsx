@@ -32,7 +32,7 @@ const handleNotificationClick = () => {
       <div className="content-wrapper">
        <Sidebar className='sidebar' collapsed={collapsed}  rootStyles={{
     [`.${sidebarClasses.container}`]: {
-      backgroundColor: '#333',
+      backgroundColor: '#332D2D',
       color:"#fff"
     },
   }}>
