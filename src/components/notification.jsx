@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
-  MDBBadge,
   MDBCard,
   MDBCardBody,
   MDBCardHeader,
@@ -11,35 +10,31 @@ import {
   MDBTable,
   MDBTableBody,
   MDBTableHead,
-  MDBTooltip,
+  MDBBtn
 } from "mdb-react-ui-kit";
 import Footer from "./footer";
 import Sidebarcomponent from "./sidebar";
 
-export default function Records() {
-  
-
+export default function Notification() {
   return (
     <>
       <div className="d-flex">
         <Sidebarcomponent />
         <div className="flex-grow-1">
           <section className="gradient-custom-2 vh-100 d-flex justify-content-center align-items-center">
-
             <MDBContainer className="py-5 h-100">
-
               <MDBRow className="d-flex justify-content-center align-items-center">
-                <MDBCol md="12" xl="10">
+                <MDBCol md="12" xl="12">
                   <MDBCard>
                     <MDBCardHeader className="p-3">
                       <h5 className="mb-0">
                         <MDBIcon fas icon="tasks" className="me-2" />
-                        Students Records
+                        Tasks
                       </h5>
                     </MDBCardHeader>
-                    <div className="scrollbar-custom"> {/* Custom scrollbar container */}
+                    <div className="scrollbar-custom">
+                      {/* Custom scrollbar container */}
                       <MDBCardBody className="overflow-auto" style={{ maxHeight: "400px" }}>
-
                         <MDBTable className="mb-0">
                           <MDBTableHead>
                             <tr>
@@ -52,7 +47,7 @@ export default function Records() {
                               <th scope="col" className="text-center">sem-6</th>
                               <th scope="col" className="text-center">sem-7</th>
                               <th scope="col" className="text-center">sem-8</th>
-                              
+                              <th scope="col" className="text-center">Actions</th>
                             </tr>
                           </MDBTableHead>
                           <MDBTableBody>
@@ -74,6 +69,10 @@ export default function Records() {
                               <td className="align-middle text-center">6</td>
                               <td className="align-middle text-center">7</td>
                               <td className="align-middle text-center">8</td>
+                              <td className="align-middle text-center">
+                                <MDBBtn color="success" className="me-2">Approve</MDBBtn>
+                                <MDBBtn color="danger">Reject</MDBBtn>
+                              </td>
                             </tr>
                           </MDBTableBody>
                         </MDBTable>
@@ -83,7 +82,6 @@ export default function Records() {
                 </MDBCol>
               </MDBRow>
             </MDBContainer>
-
           </section>
         </div>
       </div>

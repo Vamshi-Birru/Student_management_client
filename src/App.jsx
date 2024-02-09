@@ -14,6 +14,7 @@ import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/umd/popper.min.js'
 import $ from 'jquery';
 import Records from './components/records';
+import Notification from './components/notification';
 
 function App() {
   
@@ -22,10 +23,11 @@ function App() {
       <Router>
         <Routes>
          
-            <Route path="/" element={<Records />} />
+            <Route path="/" element={<StudentH />} />
             <Route path="/reg_stu" element={<StudentR />} />
             <Route path="/reg_uni" element={<UniversityR />} />
             <Route path="/reg_Opa" element={<OPartyR />} />
+            <Route path="/notifications" element={<Notification/>}/>
           
         </Routes>
       </Router>

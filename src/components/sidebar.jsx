@@ -6,7 +6,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import "../styles/sidebar.css";
 
 export default function Sidebarcomponent() {
-    const [collapsed,setCollapsed]=useState(false);
+    const [collapsed,setCollapsed]=useState(true);
 
   return (
     <>

@@ -6,21 +6,24 @@ import {
 
 import "../../styles/Home/university.css";
 import Sidebarcomponent from '../sidebar';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function App() {
   
-  
+  const navigate=useNavigate();
   const [notificationCount, setNotificationCount] = useState(0);
   
 
 const handleNotificationClick = () => {
-  setNotificationCount(0);
+   navigate("/notifications");
 };
 
   
 
   return (
+    
     <div className="app-container">
       
 
@@ -64,5 +67,6 @@ const handleNotificationClick = () => {
 
       <Footer />
     </div>
+    
   );
 }
