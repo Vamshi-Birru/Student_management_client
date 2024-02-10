@@ -13,6 +13,9 @@ import {
 
 }
   from 'mdb-react-ui-kit';
+  import Footer from "../../components/footer";
+  import Layout from "../../components/layout";
+
 const Student = () => {
   const containerStyle = {
     width: '98.79vw', // 100% of viewport width
@@ -39,6 +42,8 @@ const Student = () => {
   };
 
   return (
+    <>
+    <Layout/>
     <div style={containerStyle}>
       <img
         src="https://wallpapers-hub.art/wallpaper-images/546727.jpg"
@@ -99,6 +104,8 @@ const Student = () => {
       </MDBRow>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Footer from '../footer';
+import Footer from '../../components/footer';
 import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 
 import "../../styles/Home/university.css";
-import Sidebarcomponent from '../sidebar';
+import Sidebarcomponent from '../../components/Usidebar';
 import { useNavigate } from 'react-router-dom';
 
 
 
-export default function App() {
+export default function University() {
   
   const navigate=useNavigate();
   const [notificationCount, setNotificationCount] = useState(0);

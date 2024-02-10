@@ -14,7 +14,7 @@ import {
   MDBTooltip,
 } from "mdb-react-ui-kit";
 import Footer from "./footer";
-import Sidebarcomponent from "./sidebar";
+import Sidebarcomponent from "./Usidebar";
 
 export default function Records() {
   
