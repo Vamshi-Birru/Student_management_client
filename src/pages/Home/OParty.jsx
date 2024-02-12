@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-
-
-import "../../styles/Home/university.css";
+import Sidebarcomponent from '../../components/Osidebar';
+import Footer from "../../components/footer"
+import "../../styles/Home/OParty.css";
 
 
 
@@ -10,42 +10,43 @@ import "../../styles/Home/university.css";
 export default function OParty() {
 
   return (
-    
+
     <div className="app-container">
-      
+
 
       <div className="content-wrapper">
-       {/* <Sidebarcomponent/> */}
+        <Sidebarcomponent/>
 
         <div className='bg-image'>
           <img
-            src='https://images.pexels.com/photos/586570/pexels-photo-586570.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            src='https://plus.unsplash.com/premium_photo-1671303864929-b3fb23aef81f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTY1fHxoZCUyMHdhbGxwYXBlcnxlbnwwfDB8MHx8fDA%3D'
             className='img-fluid'
             alt='Sample'
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
           <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', width: '100%', height: '100%' }}>
-            
+
             <div className='d-flex justify-content-center align-items-center h-100'>
-              <div className="text-container">
+              <div className="text-container" style={{ marginTop: "-15%" }}>
                 <h1 className='text-white mb-4' style={{ textAlign: 'center' }}>
-                  National Institute of Technology
+                  Welcome
                 </h1>
                 <p className='text-white mb-0' style={{ textAlign: 'center' }}>
-                  Welcome to the NIT, where endless possibilities await your academic journey.<br />
-                  Nestled in the heart of Raipur, our esteemed institution stands as a beacon of knowledge, innovation, and community.<br />
-                  As you embark on your educational voyage with us, prepare to be inspired by our dedicated faculty, enriched by our diverse student body, and empowered by our commitment to excellence.<br />
-                  Whether you aspire to delve into groundbreaking research, foster meaningful connections, or shape the future with your unique vision, NIT provides the fertile ground for your aspirations to flourish.<br />
-                  Join us as we embark on a transformative voyage of learning, discovery, and growth – together, we'll reach new heights and redefine what's possible.
+                  Explore the vast repository of student records from the esteemed university.
+                  Our platform provides comprehensive access to academic achievements,
+                  extracurricular activities, and more.
+                  Discover the next generation of talent and potential waiting to be unlocked.
+                  Join us in shaping the future together.
                 </p>
+
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
-    
+
   );
 }

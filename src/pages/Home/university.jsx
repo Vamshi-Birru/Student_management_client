@@ -40,7 +40,7 @@ const handleNotificationClick = () => {
           <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', width: '100%', height: '100%' }}>
             
             <div className='d-flex justify-content-center align-items-center h-100'>
-              <div className="text-container">
+              <div className="text-container" style={{marginTop:"-20%"}}>
                 <h1 className='text-white mb-4' style={{ textAlign: 'center' }}>
                   National Institute of Technology
                 </h1>

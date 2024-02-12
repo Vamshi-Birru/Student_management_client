@@ -14,7 +14,9 @@ import 'popper.js/dist/umd/popper.min.js'
 import $ from 'jquery';
 import Records from './components/Urecords';
 import Notification from './components/Unotification';
-import OpartyH from "./pages/Home/OParty"
+import OpartyH from "./pages/Home/OParty";
+import Oaccount from './components/Oaccount';
+import OrecordForm from "./components/OrecordForm"
 function App() {
   
   return (
@@ -22,12 +24,13 @@ function App() {
       <Router>
         <Routes>
          
-            <Route path="/" element={<StudentH />} />
+            <Route path="/" element={<OpartyH />} />
             <Route path="/reg_stu" element={<StudentR />} />
             <Route path="/reg_uni" element={<UniversityR />} />
             <Route path="/reg_Opa" element={<OPartyR />} />
             <Route path="/notifications" element={<Notification/>}/>
-          
+           <Route path='/account' element={<Oaccount/>}/>
+           <Route path='/record' element={<OrecordForm/>}/>
         </Routes>
       </Router>
     </div>
