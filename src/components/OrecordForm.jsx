@@ -6,7 +6,7 @@ import {
 } from 'mdb-react-ui-kit';
 import Sidebarcomponent from './Osidebar';
 import Footer from './footer';
-import { CDBCard } from 'cdbreact'; 
+
 
 const RecordForm = () => {
  

@@ -16,7 +16,9 @@ import Records from './components/Urecords';
 import Notification from './components/Unotification';
 import OpartyH from "./pages/Home/OParty";
 import Oaccount from './components/Oaccount';
-import OrecordForm from "./components/OrecordForm"
+import OrecordForm from "./components/OrecordForm";
+import Saccount from './components/Saccount';
+import SrecordForm from './components/SrecordForm';
 function App() {
   
   return (
@@ -24,13 +26,14 @@ function App() {
       <Router>
         <Routes>
          
-            <Route path="/" element={<OpartyH />} />
+            <Route path="/" element={<StudentH />} />
             <Route path="/reg_stu" element={<StudentR />} />
             <Route path="/reg_uni" element={<UniversityR />} />
             <Route path="/reg_Opa" element={<OPartyR />} />
             <Route path="/notifications" element={<Notification/>}/>
-           <Route path='/account' element={<Oaccount/>}/>
-           <Route path='/record' element={<OrecordForm/>}/>
+           <Route path='/account' element={<Saccount/>}/>
+           <Route path='/record' element={<SrecordForm/>}/>
+
         </Routes>
       </Router>
     </div>
