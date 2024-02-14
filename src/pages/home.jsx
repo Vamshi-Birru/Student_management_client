@@ -6,7 +6,7 @@ export default function home() {
     <div>
       <Layout/>
       <div>
-      Hiii
+        
       </div>
       <Footer/>
     </div>
