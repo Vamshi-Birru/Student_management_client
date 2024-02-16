@@ -31,8 +31,8 @@ export default function Sidebarcomponent() {
         }}>
               <MenuItem className="menu1" icon={<MenuRoundedIcon onClick={() => setCollapsed(!collapsed)}/>}></MenuItem>
               <MenuItem className='menu1' icon={<HomeIcon/>} onClick={()=>navigate("/")}>Home</MenuItem>
-                <MenuItem icon={<AccountCircleIcon/>} onClick={()=>navigate("/account")} className='menu1'>Account</MenuItem>
-                <MenuItem icon={<GetAppIcon />} onClick={()=>navigate("/record")} className="menu1">Student Record</MenuItem>
+                <MenuItem icon={<AccountCircleIcon/>} onClick={()=>navigate("/Oparty/account")} className='menu1'>Account</MenuItem>
+                <MenuItem icon={<GetAppIcon />} onClick={()=>navigate("/Oparty/record")} className="menu1">Student Record</MenuItem>
                 <MenuItem icon={<LogoutRoundedIcon />} className='menu1'> Logout </MenuItem>
               </Menu>
               

@@ -29,8 +29,8 @@ export default function Ssidebar() {
         }}>
               <MenuItem className="menu1" icon={<MenuRoundedIcon onClick={() => setCollapsed(!collapsed)}/>}></MenuItem>
               <MenuItem className='menu1' icon={<HomeIcon/>} onClick={()=>navigate("/")}>Home</MenuItem>
-                <MenuItem icon={<AccountCircleIcon/>} onClick={()=>navigate("/account")} className='menu1'>Account</MenuItem>
-                <MenuItem icon={<CloudUploadIcon />} onClick={()=>navigate("/record")} className="menu1">Record</MenuItem>
+                <MenuItem icon={<AccountCircleIcon/>} onClick={()=>navigate("/student/account")} className='menu1'>Account</MenuItem>
+                <MenuItem icon={<CloudUploadIcon />} onClick={()=>navigate("/student/record")} className="menu1">Record</MenuItem>
                 <MenuItem icon={<LogoutRoundedIcon />} className='menu1'> Logout </MenuItem>
               </Menu>
               

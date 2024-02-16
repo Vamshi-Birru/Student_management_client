@@ -17,7 +17,7 @@ export default function University() {
   
 
 const handleNotificationClick = () => {
-   navigate("/notifications");
+   navigate("/university/notifications");
 };
 
   
