@@ -79,7 +79,7 @@ export default function Layout() {
       var StudentList = result;
       for (var i = 0; i < StudentList.length; i++) {
         if (publicKey.toLowerCase() === StudentList[i].toLowerCase()) {
-          // NavigateP({ designation: 0 });
+          navigate("/student");
           console.log("Yes, he is a student");
           return;
         }
@@ -94,7 +94,7 @@ export default function Layout() {
       for (var i = 0; i < UniversityList.length; i++) {
         if (publicKey.toLowerCase() === UniversityList[i].toLowerCase()) {
           console.log("It is university");
-          // Navigate({ designation: 1 });
+          navigate("university");
           return;
         }
       }
@@ -109,7 +109,7 @@ export default function Layout() {
       for (var i = 0; i < OtherPList.length; i++) {
         if (publicKey.toLowerCase() === OtherPList[i].toLowerCase()) {
           console.log("yes, it is Other Party");
-          // Navigate({ designation: 1 });
+           navigate("/OParty");
           return;
         }
       }
