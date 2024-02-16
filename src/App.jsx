@@ -12,8 +12,8 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'jquery/dist/jquery.min.js';
 import 'popper.js/dist/umd/popper.min.js'
 import $ from 'jquery';
-import Records from './components/Urecords';
-import Notification from './components/Unotification';
+import UNotification from './components/Unotification';
+import URecords from "./components/Urecords";
 import OpartyH from "./pages/Home/OParty";
 import Oaccount from './components/Oaccount';
 import OrecordForm from "./components/OrecordForm";
@@ -30,9 +30,19 @@ function App() {
             <Route path="/reg_stu" element={<StudentR />} />
             <Route path="/reg_uni" element={<UniversityR />} />
             <Route path="/reg_Opa" element={<OPartyR />} />
-            <Route path="/notifications" element={<Notification/>}/>
-           <Route path='/account' element={<Saccount/>}/>
-           <Route path='/record' element={<SrecordForm/>}/>
+
+            <Route path="/student" element={<StudentH/>}/>
+            <Route path='/student/account' element={<Saccount/>}/>
+            <Route path='/student/record' element={<SrecordForm/>}/>
+
+            <Route path="/university" element={<UniversityH/>}/>
+            <Route path='/university/records' element={<URecords/>}/>
+            <Route path="/university/notifications" element={<UNotification/>}/>
+
+            <Route path="/OParty" element={<OpartyH/>}/>
+            <Route path='/OParty/account' element={<Oaccount/>}/>
+            <Route path='/OParty/record' element={<OrecordForm />}/>
+           
 
         </Routes>
       </Router>

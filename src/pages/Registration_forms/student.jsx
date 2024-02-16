@@ -14,11 +14,12 @@ import {
   from 'mdb-react-ui-kit';
 import { ethers } from 'ethers';
 import axios from 'axios';
-import Layout from '../../components/footer';
-import Footer from '../../components/layout';
+import Footer from '../../components/footer';
+import Layout from '../../components/layout';
+import { useNavigate } from 'react-router-dom';
 
 function User() {
-
+const navigate=useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,7 +40,7 @@ function User() {
   const [lname, setLname] = useState();
   const [enroll, setEnroll] = useState();
   const [gender, setGender] = useState();
-  const [branch, setBranch] = useState();
+  const [branch, setBranch] = useState('');
   const [phone, setPhone] = useState();
   const [email, setEmail] = useState();
   const [contractaddress, setContractaddress] = useState();
@@ -82,6 +83,7 @@ function User() {
       // console.log("Form Data:", fname, lname, enroll, gender, branch, phone, email); // Check form data
       const result = await contract.add_student(fname, lname, enroll, gender, branch, phone, email);
       console.log("Transaction Result:", result); // Check transaction result
+      navigate("/student");
     } catch (err) {
       console.log("Submit error:", err);
     }
@@ -136,7 +138,7 @@ function User() {
                     <MDBCol md='6'>
                       <div className='mb-4'>
 
-                        <select className='form-select form-select-lg' id='Branch' style={{ fontSize: '16px' }}>
+                        <select className='form-select form-select-lg' id='Branch'  onChange={(e) => setBranch(e.target.value)} style={{ fontSize: '16px' }}>
                           <option value='Select Branch'>--Select Branch--</option>
                           <option value='Applied Geology'>Applied Geology</option>
                           <option value='Architecture'>Architecture</option>
