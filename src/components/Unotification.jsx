@@ -26,6 +26,7 @@ export default function Notification() {
   const [provider, setProvider] = useState();
   const [signer, setSigner] = useState();
   const [student, setStudent] = useState();
+  const [other,setOther]=useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,6 +72,7 @@ export default function Notification() {
     if (contract && signer) {
       console.log("Hello");
       fetchStudentNotifications();
+      fetchOtherPNotifications();
     }
   }, [contract]);
   const fetchStudentNotifications = async () => {
@@ -82,19 +84,20 @@ export default function Notification() {
       setStudent(result);
     }
     catch(err){
-      console.log("Error while fetching the notifications", err);
+      console.log("Error while fetching the students notifications", err);
     }
     
   }
-//   function approveRecord(
-//     address addr,
-// uint _enroll,
-// string memory _hash
-// ) public {
-
-// // Store the hash using the retrieved university address and enrollment number
-// universityEnrollToHash[addr][_enroll] = _hash;
-// }
+const fetchOtherPNotifications=async()=>{
+  try{
+const result=await contract.getOtherPNotifications();
+console.log("OtherP results: ",result);
+setOther(result);
+  }
+  catch(err){
+    console.log("Error while fetching Other parties notifications", err);
+  }
+}
   const ApproveIt=async(student)=>{
       try{
        
@@ -109,13 +112,33 @@ export default function Notification() {
       }
 
   }
-  const RejectIt=async()=>{
+  const AcceptIt=async(other)=>{
+try{
+  const response=await contract.acceptRequest(other[0],other[1]);
+  console.log(response);
+  toast.success("Succesfully approved the record");
+  fetchOtherPNotifications();
+}
+catch(err){
+  console.log("Error while accepting it", err);
+        toast.error("Failed to accept the record");
+}
+  }
+  const RejectItS=async()=>{
     const publicKey=await signer.getAddress();
     try{
 
     }
     catch(err){
       console.log("Error while rejecting it ", err);
+    }
+  }
+  const RejectItO=async()=>{
+    try{
+
+    }
+    catch(err){
+
     }
   }
   return (
@@ -138,6 +161,7 @@ export default function Notification() {
                     <div className="scrollbar-custom">
                       {/* Custom scrollbar container */}
                       <MDBCardBody className="overflow-auto" style={{ maxHeight: "400px" }}>
+                      <h4>Student Notifications</h4>
                         <MDBTable className="mb-0">
                           <MDBTableHead>
                             <tr>
@@ -166,36 +190,46 @@ export default function Notification() {
                                 ))}
                                 <td className="align-middle text-center">
                                   <MDBBtn color="success" className="me-2" onClick={()=>ApproveIt(studentInfo)}>Approve</MDBBtn>
-                                  <MDBBtn color="danger" onClick={()=>RejectIt()}>Reject</MDBBtn>
+                                  <MDBBtn color="danger" onClick={()=>RejectItS()}>Reject</MDBBtn>
                                 </td>
                               </tr>
                             ))}
                           </MDBTableBody>
-                          {/* <MDBTableBody>
-                            <tr className="fw-normal">
-                              <th className="text-center">
+                        </MDBTable>
+                        <h4>Other party Notifications</h4>
+                        <MDBTable className="mb-0">
+                          <MDBTableHead>
+                            <tr>
+                              <th scope="col" className="text-center">Name</th>
+                              <th scope="col" className="text-center">Enrollment number</th>
+                              
+                              <th scope="col" className="text-center">Actions</th>
+                            </tr>
+                          </MDBTableHead>
+                          <MDBTableBody>
+                            {other && other.map((otherPInfo, index) => (
+                              <tr key={index} className="fw-normal">
+                                <th className="text-center">
                                 <img
                                   src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp"
                                   alt="avatar"
                                   className="shadow-1-strong rounded-circle"
                                   style={{ width: "45px", height: "auto" }}
                                 />
-                                <span className="ms-2">Alice Mayer</span>
-                              </th>
-                              <td className="align-middle text-center">1</td>
-                              <td className="align-middle text-center">2</td>
-                              <td className="align-middle text-center">3</td>
-                              <td className="align-middle text-center">4</td>
-                              <td className="align-middle text-center">5</td>
-                              <td className="align-middle text-center">6</td>
-                              <td className="align-middle text-center">7</td>
-                              <td className="align-middle text-center">8</td>
-                              <td className="align-middle text-center">
-                                <MDBBtn color="success" className="me-2">Approve</MDBBtn>
-                                <MDBBtn color="danger">Reject</MDBBtn>
-                              </td>
-                            </tr>
-                          </MDBTableBody> */}
+                                  {/* Assuming studentInfo[0] contains the student name */}
+                                  <span>{otherPInfo[0]}</span>
+                                </th>
+                                {/* Assuming studentInfo[1] contains the semester information */}
+                                {otherPInfo.slice(1).map((semester, index) => (
+                                  <td key={index} className="align-middle text-center">{semester}</td>
+                                ))}
+                                <td className="align-middle text-center">
+                                  <MDBBtn color="success" className="me-2" onClick={()=>AcceptIt(otherPInfo)}>Approve</MDBBtn>
+                                  <MDBBtn color="danger" onClick={()=>RejectItO()}>Reject</MDBBtn>
+                                </td>
+                              </tr>
+                            ))}
+                          </MDBTableBody>
                         </MDBTable>
                       </MDBCardBody>
                     </div>

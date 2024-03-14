@@ -19,6 +19,7 @@ import Oaccount from './components/Oaccount';
 import OrecordForm from "./components/OrecordForm";
 import Saccount from './components/Saccount';
 import SrecordForm from './components/SrecordForm';
+import Orecords from "./components/Orecords";
 function App() {
   
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="/OParty" element={<OpartyH/>}/>
             <Route path='/OParty/account' element={<Oaccount/>}/>
             <Route path='/OParty/record' element={<OrecordForm />}/>
+            <Route path='/OParty/records' element={<Orecords />}/>
            
 
         </Routes>
