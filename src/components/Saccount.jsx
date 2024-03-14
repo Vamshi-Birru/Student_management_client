@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import {
   MDBCol,
   MDBContainer,
@@ -7,9 +7,6 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
-  MDBBtn,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
   MDBProgress,
   MDBProgressBar,
   MDBIcon,
@@ -17,9 +14,86 @@ import {
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import Footer from './footer';
-import Sidebarcomponent from "./Ssidebar"
+import Sidebarcomponent from "./Ssidebar";
+import axios from 'axios';
+import { ethers } from 'ethers';
 
 export default function Saccount() {
+  const [contractaddress, setContractaddress] = useState();
+  const [abi, setAbi] = useState();
+  const [contract, setContract] = useState(); 
+  const [provider, setProvider] = useState();
+  const [signer, setSigner] = useState();
+  const [studentInfo, setStudentInfo] = useState(null);
+
+  const handleInnerDropdownClick = (e) => {
+    e.stopPropagation();
+  };
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/contract-info');
+        setAbi(response.data.contractABI);
+        setContractaddress(response.data.contractAddress);
+        console.log(response.data.contractABI);
+        // Update state with contract info here if needed
+      } catch (error) {
+        console.error('Error fetching contract info:', error);
+      }
+    };
+
+    fetchData(); // Call the async function
+  }, []);
+
+  useEffect(() => {
+    if (contractaddress && abi) {
+      const initContract = async () => {
+        setProvider(new ethers.providers.Web3Provider(window.ethereum));
+      };
+
+      initContract();
+
+    }
+  }, [contractaddress, abi]);
+  useEffect(() => {
+    if (provider) {
+      const signer = provider.getSigner();
+      setSigner(signer);
+    }
+  }, [provider]);
+  useEffect(() => {
+    if (contractaddress && abi && provider && signer) {
+      const newContract = new ethers.Contract(contractaddress, abi, provider);
+      const contractWithSigner = newContract.connect(signer);
+      setContract(contractWithSigner);
+    }
+  }, [signer]);
+useEffect(  ()=>{
+   fetchStudentData();
+},[contract]);
+const fetchStudentData=async ()=>{
+  try{
+    if(contract&&signer){
+      const key= await signer.getAddress();
+      const result = await contract.get_student(key);
+      console.log(result);
+      const propertyKeys = ['fname','lname','enroll','gender', 'branch','phone', 'email'];
+      // Create an object by mapping properties to the result array
+      const infoObject = {};
+      result.forEach((item, index) => {
+        infoObject[propertyKeys[index]] = item;
+      });
+
+      setStudentInfo(infoObject); 
+     }
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+  
   return (
     <>
     <div className="wrapper">
@@ -70,7 +144,7 @@ export default function Saccount() {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="8">
+          {studentInfo&& <MDBCol lg="8">
             <MDBCard className="mb-4">
               <MDBCardBody>
                 <MDBRow>
@@ -78,7 +152,7 @@ export default function Saccount() {
                     <MDBCardText>Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                    <MDBCardText className="text-muted">{studentInfo.fname} {studentInfo.lname}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -87,7 +161,7 @@ export default function Saccount() {
                     <MDBCardText>Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">example@example.com</MDBCardText>
+                    <MDBCardText className="text-muted">{studentInfo.email}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -96,11 +170,11 @@ export default function Saccount() {
                     <MDBCardText>Phone</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">(097) 234-5678</MDBCardText>
+                    <MDBCardText className="text-muted">{studentInfo.phone}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
-                <MDBRow>
+                {/* <MDBRow>
                   <MDBCol sm="3">
                     <MDBCardText>Mobile</MDBCardText>
                   </MDBCol>
@@ -108,7 +182,7 @@ export default function Saccount() {
                     <MDBCardText className="text-muted">(098) 765-4321</MDBCardText>
                   </MDBCol>
                 </MDBRow>
-                <hr />
+                <hr /> */}
                 <MDBRow>
                   <MDBCol sm="3">
                     <MDBCardText>Address</MDBCardText>
@@ -175,7 +249,7 @@ export default function Saccount() {
                 </MDBCard>
               </MDBCol>
             </MDBRow>
-          </MDBCol>
+          </MDBCol>}
         </MDBRow>
       </MDBContainer>
     </section>

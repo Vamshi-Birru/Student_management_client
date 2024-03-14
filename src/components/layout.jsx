@@ -13,9 +13,11 @@ import {
   MDBCollapse,
   
 } from 'mdb-react-ui-kit';
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ethers } from 'ethers';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Layout() {
   const [openNavNoTogglerSecond, setOpenNavNoTogglerSecond] = useState(false);
@@ -36,10 +38,11 @@ export default function Layout() {
         const response = await axios.get('http://localhost:5000/contract-info');
         setAbi(response.data.contractABI);
         setContractaddress(response.data.contractAddress);
-        console.log(response.data.contractABI);
+        //console.log(response.data.contractABI);
         // Update state with contract info here if needed
       } catch (error) {
         console.error('Error fetching contract info:', error);
+        toast.error("Error fetching contract info");
       }
     };
 
@@ -75,53 +78,31 @@ export default function Layout() {
     
     //     console.log(publicKey);
     try {
-      var result = await contract.get_student_list();
-      var StudentList = result;
-      for (var i = 0; i < StudentList.length; i++) {
-        if (publicKey.toLowerCase() === StudentList[i].toLowerCase()) {
-          navigate("/student");
-          console.log("Yes, he is a student");
-          return;
-        }
+      var result = await contract.getAddressType(publicKey);
+      if(result===1){
+        toast.success('Login successful as a student');
+        navigate("/student");
+      }
+      else if(result===2){
+        toast.success('Login successful as a university');
+        navigate("/university");
+      }
+      else if(result===3){
+        toast.success('Login successful as a OtherP');
+        navigate("/otherP");
+      }
+      else{
+        toast.error('Invalid user, please register yourself');
       }
     } catch (error) {
       console.log("Error: ", error);
+      toast.error("Error, while searching");
     }
-
-    try {
-      var result = await contract.get_university_list();
-      var UniversityList = result;
-      for (var i = 0; i < UniversityList.length; i++) {
-        if (publicKey.toLowerCase() === UniversityList[i].toLowerCase()) {
-          console.log("It is university");
-          navigate("university");
-          return;
-        }
-      }
-
-    }
-    catch (error) {
-      console.log("Error: ", error);
-    }
-    try{
-      var result = await contract.get_otherP_list();
-      var OtherPList = result;
-      for (var i = 0; i < OtherPList.length; i++) {
-        if (publicKey.toLowerCase() === OtherPList[i].toLowerCase()) {
-          console.log("yes, it is Other Party");
-           navigate("/OParty");
-          return;
-        }
-      }
-    }
-    catch(err){
-      console.log("Error: ", err);
-    }
-    console.log("Invalid user!!!");
 
   }
   return (
     <>
+    <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
       <MDBNavbar expand='lg' dark bgColor='dark'>
         <MDBContainer fluid>
           <MDBNavbarBrand href='#'>

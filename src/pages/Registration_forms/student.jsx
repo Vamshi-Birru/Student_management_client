@@ -17,6 +17,8 @@ import axios from 'axios';
 import Footer from '../../components/footer';
 import Layout from '../../components/layout';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function User() {
 const navigate=useNavigate();
@@ -38,6 +40,7 @@ const navigate=useNavigate();
 
   const [fname, setFname] = useState();
   const [lname, setLname] = useState();
+  const [university,setUniversity]=useState();
   const [enroll, setEnroll] = useState();
   const [gender, setGender] = useState();
   const [branch, setBranch] = useState('');
@@ -49,6 +52,8 @@ const navigate=useNavigate();
   
   const [provider, setProvider] = useState();
   const [signer, setSigner] = useState();
+  const [universityList,setUniversityList]=useState([]);
+  
 
   useEffect(() => {
     if (contractaddress && abi) {
@@ -74,14 +79,31 @@ const navigate=useNavigate();
     }
   }, [signer]);
 
+ useEffect(()=>{
+  if(contract&&signer){
+    fetchUniversityList();
+  }
+ },[contract]);
+ const fetchUniversityList=async()=>{
+  try{
+    const result=await contract.get_university_list();
+    setUniversityList(result);
+    //console.log(result);
+  }
+  catch(err){
+    console.log("Error: ",err);
+    toast.error("Error while fetching the university list");
+  }
+  
 
+ }
 
   const handleSubmit = async () => {
     try {
       // console.log("Contract:", contract); // Check contract object
     
       // console.log("Form Data:", fname, lname, enroll, gender, branch, phone, email); // Check form data
-      const result = await contract.add_student(fname, lname, enroll, gender, branch, phone, email);
+      const result = await contract.add_student(fname, lname,university, enroll, gender, branch, phone, email);
       console.log("Transaction Result:", result); // Check transaction result
       navigate("/student");
     } catch (err) {
@@ -91,6 +113,7 @@ const navigate=useNavigate();
 
   return (
     <>
+    <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     <Layout/>
     <MDBContainer fluid className='bg-dark'>
 
@@ -124,6 +147,26 @@ const navigate=useNavigate();
                     </MDBCol>
 
                   </MDBRow>
+                  <MDBRow>
+                      <MDBCol md="6">
+                        <div className="mb-4">
+                          <select
+                            className="form-select form-select-lg"
+                            id="Branch"
+                            value={university}
+                            onChange={(e) => setUniversity(e.target.value)}
+                            style={{ fontSize: '16px' }}
+                          >
+                            <option value="">-- Select University --</option>
+                            {universityList.map((university, index) => (
+                              <option key={index} value={university}>
+                                {university}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </MDBCol>
+                    </MDBRow>
 
                   <MDBInput wrapperClass='mb-4' label='Enrollment Number' size='lg' id='form3' type='text' onChange={(e) => setEnroll(e.target.value)} />
 
