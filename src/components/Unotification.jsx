@@ -114,9 +114,17 @@ setOther(result);
   }
   const AcceptIt=async(other)=>{
 try{
+  
+ console.log(other[0],other[1]);
   const response=await contract.acceptRequest(other[0],other[1]);
   console.log(response);
-  toast.success("Succesfully approved the record");
+  contract.on("acceptedRequest", ( universityAddress,enrollment, enrollments) => {
+    console.log("Request accepted - University address:", universityAddress);
+    console.log("Enrollment:", enrollment);
+    console.log("Enrollments:", enrollments);
+    toast.success("Successfully accepted");
+});
+  
   fetchOtherPNotifications();
 }
 catch(err){
@@ -124,21 +132,25 @@ catch(err){
         toast.error("Failed to accept the record");
 }
   }
-  const RejectItS=async()=>{
-    const publicKey=await signer.getAddress();
+  const RejectItS=async(student)=>{
+    
     try{
-
+        await contract.rejectSRecord(other[0]);
+        toast.success("Successfully rejected the record");
     }
     catch(err){
       console.log("Error while rejecting it ", err);
+      toast.error("Failed to reject the record");
     }
   }
-  const RejectItO=async()=>{
+  const RejectItO=async(other)=>{
     try{
-
+      await contract.rejectOrequest(other[0]);
+      toast.success("Successfully rejected the request");
     }
     catch(err){
-
+      console.log("Error while rejecting it ", err);
+      toast.error("Failed to reject the request");
     }
   }
   return (
@@ -190,7 +202,7 @@ catch(err){
                                 ))}
                                 <td className="align-middle text-center">
                                   <MDBBtn color="success" className="me-2" onClick={()=>ApproveIt(studentInfo)}>Approve</MDBBtn>
-                                  <MDBBtn color="danger" onClick={()=>RejectItS()}>Reject</MDBBtn>
+                                  <MDBBtn color="danger" onClick={()=>RejectItS(studentInfo)}>Reject</MDBBtn>
                                 </td>
                               </tr>
                             ))}
@@ -225,7 +237,7 @@ catch(err){
                                 ))}
                                 <td className="align-middle text-center">
                                   <MDBBtn color="success" className="me-2" onClick={()=>AcceptIt(otherPInfo)}>Approve</MDBBtn>
-                                  <MDBBtn color="danger" onClick={()=>RejectItO()}>Reject</MDBBtn>
+                                  <MDBBtn color="danger" onClick={()=>RejectItO(otherPInfo)}>Reject</MDBBtn>
                                 </td>
                               </tr>
                             ))}
