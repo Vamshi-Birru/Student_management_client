@@ -106,7 +106,8 @@ const RecordForm = () => {
               <p className="h5 mt-2 py-4 font-weight-bold" style={{ borderRadius: '10%' }}>Contact Us</p>
             </div>
             <MDBInput id='form4Example1' wrapperClass='mb-4' label='Name' onChange={(e) => setName(e.target.value)} />
-            <MDBInput type='Number' id='form4Example2' wrapperClass='mb-4' label='Enrollment ID' onChange={(e) => setEnroll(e.target.value)} />
+            <MDBInput type='N
+            umber' id='form4Example2' wrapperClass='mb-4' label='Enrollment ID' onChange={(e) => setEnroll(e.target.value)} />
             <MDBRow>
               <MDBCol md="6">
                 <div className="mb-4">
@@ -136,7 +137,7 @@ const RecordForm = () => {
               defaultChecked
             />
 
-            <MDBBtn type='submit' className='mb-4' block onClick={handleSubmit}>
+            <MDBBtn type='button' className='mb-4'  onClick={()=>handleSubmit()}>
               Send Request
             </MDBBtn>
 

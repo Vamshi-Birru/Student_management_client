@@ -89,7 +89,7 @@ export default function Layout() {
       }
       else if(result===3){
         toast.success('Login successful as a OtherP');
-        navigate("/otherP");
+        navigate("/OParty");
       }
       else{
         toast.error('Invalid user, please register yourself');
