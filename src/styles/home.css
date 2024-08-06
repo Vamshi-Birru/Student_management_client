@@ -1,0 +1,58 @@
+body {
+    background-image: url('https://images.unsplash.com/photo-1594463750939-ebb28c3f7f75?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aXJvbiUyMG1hbnxlbnwwfDB8MHx8fDA%3D');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+   
+}
+
+.container {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px; /* Add padding to center the content horizontally */
+    color: #fff; /* Set text color to white */
+    text-align: center;
+    position: relative; /* Ensure position relative for absolute positioning */
+    
+}
+
+.context {
+    margin-bottom: 2%;
+}
+
+.buttons {
+    margin-top: 5%;
+}
+
+.services {
+    margin-top: 10px; /* Increase the top margin to create space between context and services */
+    margin-bottom: 5%;
+}
+
+
+
+.card {
+    margin-top: 7%;
+    background-color: #fff; /* Set background color of the cards */
+    border-radius: 2%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Add slight lift effect on hover */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover for depth */
+}
+
+.card h3 {
+    color: #333; /* Set card title color */
+}
+
+.card p {
+    color: #666; /* Set card text color */
+}
+
+
